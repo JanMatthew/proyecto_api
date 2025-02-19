@@ -23,7 +23,7 @@ public class Trabajador {
     @Column(nullable = false)
     private int edad;
 
-    @ManyToOne
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "nominas",nullable = true)
     private Nomina nomina;
 }
