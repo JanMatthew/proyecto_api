@@ -23,25 +23,25 @@ public class TrabajadorController {
     Logger logger = Logger.getLogger(TrabajadorController.class.getName());
 
     @GetMapping
-    private ResponseEntity<?> getAllTrabajadores(@AuthenticationPrincipal User user){
+    private ResponseEntity<?> getAllTrabajadores(){
         logger.info("Solicitud GET: Obtener todos los trabajadores");
         return ResponseEntity.ok(trabajadorService.getAllTrabajadores());
     }
 
     @PostMapping
-    private ResponseEntity<?> addTrabajador(@RequestBody Trabajador trabajador,@AuthenticationPrincipal User user){
+    private ResponseEntity<?> addTrabajador(@RequestBody Trabajador trabajador){
         logger.info("Solicitud POST: Agregar nuevo trabajador con datos: " + trabajador);
         return ResponseEntity.ok(trabajadorService.addTrabajador(trabajador));
     }
 
     @PutMapping
-    private ResponseEntity<?> updateTrabajador(@RequestBody Trabajador trabajador,@AuthenticationPrincipal User user){
+    private ResponseEntity<?> updateTrabajador(@RequestBody Trabajador trabajador){
         logger.info("Solicitud PUT: Actualizar trabajador con datos: " + trabajador);
         return ResponseEntity.ok(trabajadorService.updateTrabajador(trabajador));
     }
 
     @DeleteMapping("/{id}")
-    private ResponseEntity<?> deleteUser(@PathVariable Long id,@AuthenticationPrincipal User user) throws Throwable {
+    private ResponseEntity<?> deleteUser(@PathVariable Long id) throws Throwable {
         logger.info("Solicitud DELETE: Eliminar trabajador con ID: " + id);
         try {
             logger.info("Trabajador eliminado con éxito: " + id);
