@@ -70,6 +70,8 @@ Una vez creado el archivo crear un archivo de servicio en **Systemd**:
 ```bash
 sudo nano /etc/systemd/system/nombre.service
 ```
+![imagen](https://github.com/user-attachments/assets/a9165e1a-7eb4-4916-a8d4-be0364c1de2e)
+
 
 En el archivo añadimo el siguiente contenido:
 ```ini
@@ -88,6 +90,8 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 ```
+![imagen](https://github.com/user-attachments/assets/a26e2934-5cbb-4ce1-9328-1c47f4c3b034)
+
 En el ExecStart se debe indicar tanto la ruta del jdk en este caso debe ser el 17 como la ruta del jar que hemos creado
 
 Guardar y ejecutar:
@@ -96,3 +100,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable api-springboot
 sudo systemctl start api-springboot
 ```
+![imagen](https://github.com/user-attachments/assets/9614a4a9-1eb2-4b47-a4f8-80eac0893624)
+
+**⚠️ Si el servicio presenta errores, revisa los logs con:**
+```bash
+sudo journalctl -u api --no-pager --lines=50
+
+
