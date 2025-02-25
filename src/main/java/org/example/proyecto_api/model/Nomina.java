@@ -13,7 +13,7 @@ import javax.annotation.processing.Generated;
 @NoArgsConstructor
 @Data
 @Entity(name = "nominas")
-public class Nomina {
+public class Nomina extends TimeStampedPersistableObject{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Entity(name="trabajadores")
-public class Trabajador {
+public class Trabajador extends TimeStampedPersistableObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
